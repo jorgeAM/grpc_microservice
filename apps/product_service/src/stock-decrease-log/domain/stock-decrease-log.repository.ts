@@ -1,3 +1,3 @@
 export interface StockDecreaseLogRepository {
-  decreaseStock(productId: number, orderId: number): Promise<void>;
+  decreaseStock(productId: string, orderId: string): Promise<void>;
 }

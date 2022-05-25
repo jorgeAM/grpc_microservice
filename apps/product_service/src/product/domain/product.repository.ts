@@ -1,6 +1,6 @@
 import { Product } from './product';
 
 export interface ProductRepository {
-  findById(id: number): Promise<Product>;
+  findById(id: string): Promise<Product>;
   create(product: Product): Promise<void>;
 }

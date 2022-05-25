@@ -1,3 +1,5 @@
+import { StockDecreaseLog } from './stock-decrease-log'
+
 export interface StockDecreaseLogRepository {
-  decreaseStock(productId: string, orderId: string): Promise<void>;
+  create(log: StockDecreaseLog): Promise<void>
 }

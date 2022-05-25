@@ -1,7 +1,3 @@
 export class StockDecreaseLog {
-  constructor(
-    private id: string,
-    private orderId: string,
-    private productId: string,
-  ) {}
+  constructor(readonly id: string, readonly orderId: string, readonly productId: string) {}
 }

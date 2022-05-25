@@ -1,9 +1,3 @@
 export class Product {
-  constructor(
-    private id: string,
-    private name: string,
-    private sku: string,
-    private stock: number,
-    private price: number,
-  ) {}
+  constructor(readonly id: string, readonly name: string, readonly sku: string, readonly stock: number, readonly price: number) {}
 }

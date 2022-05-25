@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common';
-import { ClientsModule, Transport } from '@nestjs/microservices';
-import { join } from 'path';
-import { AuthController } from './auth.controller';
-import { AUTH_PACKAGE_NAME, AUTH_SERVICE_NAME } from './auth.pb';
-import { AuthService } from './auth.service';
+import { Module } from '@nestjs/common'
+import { ClientsModule, Transport } from '@nestjs/microservices'
+import { join } from 'path'
+import { AuthController } from './auth.controller'
+import { AUTH_PACKAGE_NAME, AUTH_SERVICE_NAME } from './auth.pb'
+import { AuthService } from './auth.service'
 
 @Module({
   imports: [

@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common';
-import { ClientsModule, Transport } from '@nestjs/microservices';
-import { join } from 'path';
-import { AuthModule } from '../auth/auth.module';
-import { ProductController } from './product.controller';
-import { PRODUCT_PACKAGE_NAME, PRODUCT_SERVICE_NAME } from './product.pb';
+import { Module } from '@nestjs/common'
+import { ClientsModule, Transport } from '@nestjs/microservices'
+import { join } from 'path'
+import { AuthModule } from '../auth/auth.module'
+import { ProductController } from './product.controller'
+import { PRODUCT_PACKAGE_NAME, PRODUCT_SERVICE_NAME } from './product.pb'
 
 @Module({
   imports: [

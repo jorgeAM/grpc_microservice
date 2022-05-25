@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ProductServiceController } from './product_service.controller';
 import { ProductServiceService } from './product_service.service';
+import { ProductModule } from './product/product.module';
+import { StockDecreaseLogModule } from './stock-decrease-log/stock-decrease-log.module';
 
 @Module({
-  imports: [],
+  imports: [ProductModule, StockDecreaseLogModule],
   controllers: [ProductServiceController],
   providers: [ProductServiceService],
 })

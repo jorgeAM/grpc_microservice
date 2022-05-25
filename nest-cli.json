@@ -1,4 +1,48 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "apps/grpc-microservice-kata/src",
+  "monorepo": true,
+  "root": "apps/grpc-microservice-kata",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/grpc-microservice-kata/tsconfig.app.json"
+  },
+  "projects": {
+    "grpc-microservice-kata": {
+      "type": "application",
+      "root": "apps/grpc-microservice-kata",
+      "entryFile": "main",
+      "sourceRoot": "apps/grpc-microservice-kata/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/grpc-microservice-kata/tsconfig.app.json"
+      }
+    },
+    "auth_service": {
+      "type": "application",
+      "root": "apps/auth_service",
+      "entryFile": "main",
+      "sourceRoot": "apps/auth_service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/auth_service/tsconfig.app.json"
+      }
+    },
+    "order_service": {
+      "type": "application",
+      "root": "apps/order_service",
+      "entryFile": "main",
+      "sourceRoot": "apps/order_service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/order_service/tsconfig.app.json"
+      }
+    },
+    "product_service": {
+      "type": "application",
+      "root": "apps/product_service",
+      "entryFile": "main",
+      "sourceRoot": "apps/product_service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/product_service/tsconfig.app.json"
+      }
+    }
+  }
 }

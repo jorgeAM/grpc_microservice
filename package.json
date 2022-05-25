@@ -15,10 +15,10 @@
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
-    "proto:auth": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./proto --ts_proto_out=apps/grpc-microservice-kata/src/auth proto/auth.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
-    "proto:order": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./proto --ts_proto_out=apps/grpc-microservice-kata/src/order proto/order.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
-    "proto:product": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./proto --ts_proto_out=apps/grpc-microservice-kata/src/product proto/product.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
-    "proto:all": "npm run proto:auth && npm run proto:order && npm run proto:product",
+    "proto:auth:api-gateway": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./proto --ts_proto_out=apps/grpc-microservice-kata/src/auth proto/auth.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
+    "proto:order:api-gateway": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./proto --ts_proto_out=apps/grpc-microservice-kata/src/order proto/order.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
+    "proto:product:api-gateway": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./proto --ts_proto_out=apps/grpc-microservice-kata/src/product proto/product.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
+    "proto:all:api-gateway": "npm run proto:auth && npm run proto:order && npm run proto:product",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
@@ -33,7 +33,8 @@
     "@nestjs/platform-express": "^8.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "uuid": "8.3.2"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",

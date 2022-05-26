@@ -30,21 +30,25 @@ export class ProductPostgresRepository implements ProductRepository {
   async findById(id: string): Promise<Product> {
     const res = await this.client.query<ProductPostgres>('SELECT * FROM products WHERE id = $1', [id])
 
-    if (res.rows.length === 0) {
-      throw new ProductNotFoundException('Product not found')
-    }
-
     const data = res.rows[0]
 
-    return this.toEntity(data)
+    return data && this.toEntity(data)
   }
 
   async create(product: Product): Promise<void> {
     const { id, name, sku, stock, price } = product
 
-    const queryText = 'INSERT INTO users(id, name, sku, stock, price) VALUES($1, $2, $3, $4, $5)'
+    const queryText = 'INSERT INTO products(id, name, sku, stock, price) VALUES($1, $2, $3, $4, $5)'
 
     await this.client.query(queryText, [id, name, sku, stock, price])
+  }
+
+  async save(product: Product): Promise<void> {
+    const { id, name, sku, stock, price } = product
+
+    const queryText = 'UPDATE products SET name = $1, sku = $2, stock = $3, price = $4 WHERE id = $5'
+
+    await this.client.query(queryText, [name, sku, stock, price, id])
   }
 
   private toEntity(data: ProductPostgres): Product {

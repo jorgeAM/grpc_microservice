@@ -12,11 +12,11 @@ message CreateProductRequest {
 message CreateProductResponse {
     int32 status = 1;
     repeated string error = 2;
-    int32 id = 3;
+    string id = 3;
 }
 
-message FindOneData {
-  int32 id = 1;
+message Product {
+  string id = 1;
   string name = 2;
   string sku = 3;
   int32 stock = 4;
@@ -24,17 +24,17 @@ message FindOneData {
 }
 
 message FindOneRequest {
-  int32 id = 1;
+  string id = 1;
 }
 
 message FindOneResponse {
   int32 status = 1;
   repeated string error = 2;
-  FindOneData data = 3;
+  Product data = 3;
 }
   
 message DecreaseStockRequest {
-  int32 id = 1;
+  string id = 1;
 }
 
 message DecreaseStockResponse {
@@ -43,7 +43,7 @@ message DecreaseStockResponse {
 }
 
 service ProductService {
-  rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse) {}
-  rpc FindOne(FindOneRequest) returns (FindOneResponse) {}
+  rpc Create(CreateProductRequest) returns (CreateProductResponse) {}
+  rpc FindById(FindOneRequest) returns (FindOneResponse) {}
   rpc DecreaseStock(DecreaseStockRequest) returns (DecreaseStockResponse) {}
 }

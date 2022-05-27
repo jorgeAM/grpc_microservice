@@ -20,7 +20,7 @@
     "proto:product:api-gateway": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./proto --ts_proto_out=apps/grpc-microservice-kata/src/product proto/product.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
     "proto:all:api-gateway": "npm run proto:auth:api-gateway && npm run proto:order:api-gateway && npm run proto:product:api-gateway",
     "proto:auth": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./proto --ts_proto_out=apps/auth-service/ proto/auth.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
-    "proto:order": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./proto --ts_proto_out=apps/grpc-microservice-kata/src/order proto/order.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
+    "proto:order": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./proto --ts_proto_out=apps/order_service/src/order/infrastructure/grpc proto/order.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
     "proto:product": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto -I=./proto --ts_proto_out=apps/product_service/src/product/infrastructure/grpc proto/product.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
     "proto:all": "npm run proto:auth && npm run proto:order && npm run proto:product",
     "test:watch": "jest --watch",

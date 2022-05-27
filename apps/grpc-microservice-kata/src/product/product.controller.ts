@@ -23,7 +23,6 @@ export class ProductController implements OnModuleInit {
   @Post()
   // @UseGuards(AuthGuard)
   createProduct(@Body() body: CreateProductRequest): Observable<CreateProductResponse> {
-    console.log('xxx')
     return this.productServiceClient.create(body)
   }
 

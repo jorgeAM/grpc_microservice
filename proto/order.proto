@@ -3,9 +3,9 @@ syntax = "proto3";
 package order;
 
 message CreateOrderRequest {
-    int32 productId = 1;
+    string productId = 1;
     int32 quantity = 2;
-    int32 userId = 3;
+    string userId = 3;
 }
   
 message CreateOrderResponse {
@@ -15,5 +15,5 @@ message CreateOrderResponse {
 }
 
 service OrderService {
-    rpc CreateOrder(CreateOrderRequest) returns(CreateOrderResponse) {}
+    rpc Create(CreateOrderRequest) returns(CreateOrderResponse) {}
 }

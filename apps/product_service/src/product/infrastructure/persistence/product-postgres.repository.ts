@@ -1,6 +1,6 @@
 import { Client } from 'pg'
 import { Injectable } from '@nestjs/common'
-import { Product, ProductNotFoundException, ProductRepository } from '../../domain'
+import { Product, ProductRepository } from '../../domain'
 
 interface ProductPostgres {
   id: string

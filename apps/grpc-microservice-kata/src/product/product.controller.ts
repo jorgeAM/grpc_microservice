@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Inject, OnModuleInit, Param, ParseIntPipe, Post, UseGuards } from '@nestjs/common'
+import { Body, Controller, Get, Inject, OnModuleInit, Param, Post, UseGuards } from '@nestjs/common'
 import { ClientGrpc } from '@nestjs/microservices'
 import { Observable } from 'rxjs'
 import { AuthGuard } from '../auth/auth.guard'
@@ -21,14 +21,15 @@ export class ProductController implements OnModuleInit {
   }
 
   @Post()
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   createProduct(@Body() body: CreateProductRequest): Observable<CreateProductResponse> {
-    return this.productServiceClient.createProduct(body)
+    console.log('xxx')
+    return this.productServiceClient.create(body)
   }
 
   @Get(':id')
   @UseGuards(AuthGuard)
-  findOne(@Param('id', ParseIntPipe) id: number): Observable<FindOneResponse> {
-    return this.productServiceClient.findOne({ id })
+  findOne(@Param('id') id: string): Observable<FindOneResponse> {
+    return this.productServiceClient.findById({ id })
   }
 }

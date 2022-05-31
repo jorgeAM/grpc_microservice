@@ -15,9 +15,9 @@ export class OrderController implements OnModuleInit {
   }
 
   @Post()
-  // @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard)
   createOrder(@Body() body: CreateOrderRequest, @Req() req: Request): Observable<CreateOrderResponse> {
-    // body.userId = req['user'] as string
+    body.userId = req['user'] as string
 
     return this.orderServiceClient.create(body)
   }

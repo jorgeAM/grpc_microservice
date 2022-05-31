@@ -21,7 +21,7 @@ export class ProductController implements OnModuleInit {
   }
 
   @Post()
-  // @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard)
   createProduct(@Body() body: CreateProductRequest): Observable<CreateProductResponse> {
     return this.productServiceClient.create(body)
   }
